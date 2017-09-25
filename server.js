@@ -7,12 +7,18 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 console.log('----im in slack-button-xaxis server.js file ');
 app.post('/slack/slash-commands/send-me-buttons', urlencodedParser, (req, res) =>{
     res.status(200).end() // best practice to respond with empty 200 status code
+	console.log('----place 1 ');
     var reqBody = req.body
+	console.log('----place 2 ');
     var responseURL = reqBody.response_url
+	console.log('----place 3 ');
     if (reqBody.token != "qAuoAiwY3kSaSC076U3EfkNr"){
+		console.log('----place 4 ');
         res.status(403).end("Access forbidden")
     }else{
-        var message = {
+        
+		console.log('----place 5 ');
+		var message = {
             "text": "This is your first interactive message",
             "attachments": [
                 {
