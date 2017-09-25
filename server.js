@@ -5,7 +5,8 @@ var app = express()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
  
-console.log('----im in slack-button-xaxis server.js file ');
+console.log('----///im in slack-button-xaxis server.js file ');
+console.log('--urlencodedParser, (req, res) is ' + urlencodedParser, (req, res));
 app.post('/slack/slash-commands/send-me-buttons', urlencodedParser, (req, res) =>{
     res.status(200).end() // best practice to respond with empty 200 status code
 	console.log('----place 1 ');
@@ -71,3 +72,8 @@ function sendMessageToSlackResponseURL(responseURL, JSONmessage){
         }
     })
 }
+
+
+app.listen(app.get('port'), function () {
+    console.log('Express server listening on port ' + app.get('port'));
+});
