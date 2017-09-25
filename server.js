@@ -1,15 +1,10 @@
-let express = require('express'),
-    bodyParser = require('body-parser'),
-    request = require('request'),    
-    app = express();
-	
-	app.enable('trust proxy');
+var express = require('express')
+var request = require('request')
+var bodyParser = require('body-parser')
+var app = express()
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-app.set('port', process.env.PORT || 5000);
-
-app.use('/', express.static(__dirname + '/www')); // serving company logos after successful authentication
-
-var urlencodedParser = bodyParser.urlencoded({ extended: true })
+ 
 console.log('----im in slack-button-xaxis server.js file ');
 app.post('/slack/slash-commands/send-me-buttons', urlencodedParser, (req, res) =>{
     res.status(200).end() // best practice to respond with empty 200 status code
