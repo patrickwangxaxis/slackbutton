@@ -1,7 +1,7 @@
-var express = require('express')
-var request = require('request')
-var bodyParser = require('body-parser')
-var app = express()
+let express = require('express'),
+    bodyParser = require('body-parser'),
+    app = express();
+
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.post('/slack/slash-commands/send-me-buttons', urlencodedParser, (req, res) =>{
